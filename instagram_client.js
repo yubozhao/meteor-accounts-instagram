@@ -15,14 +15,14 @@ Instagram.requestCredential = function (options, credentailRequestCompleteCallba
   var credentialToken = Random.secret();
 
   console.log('credentialToken created on client is ', credentialToken);
-  var scope = (options && options.requestPermissions) || ['basic'];
+  var scope = (options && options.requestPermissions) || ['basic', 'likes', 'relationships', 'comments'];
   var flatScope = _.map(scope, encodeURIComponent).join('+');
 
   var loginUrl =
     'https://instagram.com/oauth/authorize' +
       '?client_id=' + config.clientId +
       '&response_type=code' +
-      '&scope=' + scope +
+      '&scope=' + flatScope +
       '&redirect_uri=' + Meteor.absoluteUrl('_oauth/instagram?close=close') +
       '&state=' + credentialToken;
 

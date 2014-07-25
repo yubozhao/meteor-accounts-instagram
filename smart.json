@@ -3,6 +3,5 @@
   "description": "Login service for instagram accounts",
   "homepage": "https://github.com/yubozhao/meteor-instagram",
   "author": "Bozhao Yu <yubz86@gmail.com>",
-  "version": "0.1.0",
-  "git": "https://github.com/khamoud/meteor-instagram.git",
+  "version": "0.1.0"
 }
