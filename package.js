@@ -1,8 +1,12 @@
 Package.describe({
-  summary: "Instagram oauth flow"
+  summary: "Instagram account login for meteor",
+  "version": "0.1.0",
+  "git": "https://github.com/yubozhao/meteor-accounts-instagram",
+  "name": "bozhao:accounts-instagram"
 });
 
 Package.on_use(function(api) {
+  api.versionsFrom('METEOR@0.9.0');
   api.use('accounts-base', ['client', 'server']);
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
