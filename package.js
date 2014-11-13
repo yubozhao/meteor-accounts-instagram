@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Instagram account login for meteor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "git": "https://github.com/yubozhao/meteor-accounts-instagram",
   "name": "bozhao:accounts-instagram"
 });

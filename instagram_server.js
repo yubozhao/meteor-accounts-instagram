@@ -24,7 +24,7 @@ var getTokenResponse = function (query) {
   var config = ServiceConfiguration.configurations.findOne({service: 'instagram'});
 
   if (!config)
-      throw new ServiceConfiguration.ConfigError("Service not configured");
+    throw new ServiceConfiguration.ConfigError();
 
   var response;
 
@@ -34,8 +34,8 @@ var getTokenResponse = function (query) {
         params: {
           code: query.code,
           client_id: config.clientId,
+          redirect_uri: OAuth._redirectUri("instagram", config),
           client_secret: config.secret,
-          redirect_uri: Meteor.absoluteUrl("_oauth/instagram?close=close"),
           grant_type: 'authorization_code'
         }
       });
