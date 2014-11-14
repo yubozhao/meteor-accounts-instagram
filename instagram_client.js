@@ -1,6 +1,6 @@
 Instagram = {};
 
-Instagram.requestCredential = function (options, credentailRequestCompleteCallback) {
+Instagram.requestCredential = function (options, credentialRequestCompleteCallback) {
   if (!credentialRequestCompleteCallback && typeof options === 'function') {
     credentialRequestCompleteCallback = options;
     options = {};
@@ -13,8 +13,7 @@ Instagram.requestCredential = function (options, credentailRequestCompleteCallba
     return;
   }
   var credentialToken = Random.secret();
-
-  console.log('credentialToken created on client is ', credentialToken);
+  var loginStyle = OAuth._loginStyle('instagram', config, options);
   var scope = (options && options.requestPermissions) || ['basic', 'likes', 'relationships', 'comments'];
   var flatScope = _.map(scope, encodeURIComponent).join('+');
 
@@ -23,12 +22,14 @@ Instagram.requestCredential = function (options, credentailRequestCompleteCallba
       '?client_id=' + config.clientId +
       '&response_type=code' +
       '&scope=' + flatScope +
-      '&redirect_uri=' + Meteor.absoluteUrl('_oauth/instagram?close=close') +
-      '&state=' + credentialToken;
+      '&redirect_uri=' + OAuth._redirectUri('instagram', config) +
+      '&state=' + OAuth._stateParam(loginStyle, credentialToken);
 
-  OAuth.showPopup(
-    loginUrl,
-    _.bind(credentailRequestCompleteCallback, null, credentialToken),
-    {width: 900, height: 450}
-  );
+  OAuth.launchLogin({
+    loginService: "instagram"
+    , loginStyle: loginStyle
+    , loginUrl: loginUrl
+    , credentialRequestCompleteCallback: credentialRequestCompleteCallback
+    , credentialToken: credentialToken
+  });
 };

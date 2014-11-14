@@ -1,6 +1,8 @@
-Template.configureLoginServiceDialogForInstagram.siteUrl = function () {
-  return Meteor.absoluteUrl();
-};
+Template.configureLoginServiceDialogForInstagram.helpers({
+  siteUrl: function () {
+    return Meteor.absoluteUrl();
+  }
+});
 
 Template.configureLoginServiceDialogForInstagram.fields = function () {
   return [

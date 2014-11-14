@@ -27,7 +27,6 @@ var getTokenResponse = function (query) {
     throw new ServiceConfiguration.ConfigError();
 
   var response;
-
   try {
     response = HTTP.post(
       "https://api.instagram.com/oauth/access_token", {
@@ -35,7 +34,7 @@ var getTokenResponse = function (query) {
           code: query.code,
           client_id: config.clientId,
           redirect_uri: OAuth._redirectUri("instagram", config),
-          client_secret: config.secret,
+          client_secret: OAuth.openSecret(config.secret),
           grant_type: 'authorization_code'
         }
       });
