@@ -1,8 +1,3 @@
-accounts-instagram
-==================
-
-Login service for Instagram accounts
-=======
 # Meteor Acccounts Instagram
 #### Instagram account login for meteor
 
