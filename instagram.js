@@ -15,7 +15,9 @@ if (Meteor.isClient) {
   Accounts.addAutopublishFields({
     forLoggedInUser: ['services.instagram'],
     forOtherUsers: [
-      'services.instagram.username'
+      'services.instagram.username',
+      'services.instagram.full_name',
+      'services.instagram.profile_picture'
     ]
   });
 }
