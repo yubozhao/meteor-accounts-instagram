@@ -22,7 +22,7 @@ and also add following package as pre-req -
   For e.g.redirect url for localhost : `http://localhost:3000/_oauth/instagram`
 
 3. After registration, note down the clientid and client secret.
-4. Now in your app do create the `accounts.js` (or `acoounts.coffee` if you use coffeescript) and put following code inside
+4. Now in your app do create the `accounts.js` (or `accounts.coffee` if you use coffeescript) and put following code inside
 
  so,it file looks in directory tree- `<your-app-directory>/server/accounts.js`  and put the client id and client secret from previous step
 
