@@ -41,11 +41,11 @@ and also add following package as pre-req -
 5. Now, all things are setup, you are ready to use this package
 6. Add following button code for login
 ```
-      Meteor.loginWithInstagram(function (err, res) {
-          if (!err) {
-            console.log('sucess ' + res)
+      Meteor.loginWithInstagram(function (err) {
+          if (err) {
+            console.log('login failed', err);
           } else {
-            console.log('login failed ' + err)
+            console.log('login success', Meteor.user());
           }
       });
 ```
