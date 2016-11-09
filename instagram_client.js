@@ -15,6 +15,9 @@ Instagram.requestCredential = function (options, credentialRequestCompleteCallba
   var credentialToken = Random.secret();
   var loginStyle = OAuth._loginStyle('instagram', config, options);
   var scope = (config.scope) || ['basic', 'likes', 'relationships', 'comments'];
+  if (typeof scope === 'string') {
+    scope = [scope];
+  }
   var flatScope = _.map(scope, encodeURIComponent).join('+');
 
   var loginUrl =
