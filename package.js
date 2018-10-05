@@ -16,7 +16,7 @@ Package.on_use(function(api) {
   api.use('oauth2', ['client', 'server']);
   api.use('http', ['server']);
   api.use('templating', 'client');
-  api.use('underscore', 'server');
+  api.use('underscore', ['client', 'server']);
   api.use('random', 'client');
   api.use('service-configuration', ['client', 'server']);
 
