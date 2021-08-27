@@ -1,5 +1,5 @@
 Instagram = {};
-
+var Oauth = Package.oauth.OAuth;
 Oauth.registerService('instagram', 2, null, function(query) {
 
   var response = getTokenResponse(query);
