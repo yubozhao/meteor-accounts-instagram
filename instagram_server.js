@@ -4,7 +4,7 @@ Oauth.registerService('instagram', 2, null, function(query) {
 
   var response = getTokenResponse(query);
   var accessToken = response.access_token;
-  var identity = response.user;
+  var identity = {userId: response.user_id};
 
   var serviceData = _.extend(identity, {accessToken: response.access_token});
 
